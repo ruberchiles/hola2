@@ -69,5 +69,7 @@ function LED1_Off(){
   function onMessageArrived(message) {
     console.log("Nuevo mensaje:"+message.payloadString);
     document.getElementById("sensor").innerHTML=message.payloadString.split("=")[1];
+    document.getElementById("sensor1").innerHTML=message.payloadString.split("=")[1];
+
   }
   
