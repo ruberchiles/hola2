@@ -3,7 +3,7 @@
 function LED1_On() {
 	
 	console.log("suma");
-        message = new Paho.MQTT.Message("suma");
+        message = new Paho.MQTT.Message("La suma es 8000");
         message.destinationName = "ruberchiles@hotmail.es/test1";
         client.send(message);
         
@@ -12,7 +12,7 @@ function LED1_On() {
 function LED1_Off(){	
 	
 	console.log("resta");
-        message = new Paho.MQTT.Message("resta")
+        message = new Paho.MQTT.Message("La resta es 2000")
         message.destinationName = "ruberchiles@hotmail.es/test1";
         client.send(message);
 }
