@@ -3,25 +3,20 @@
 function LED1_On() {
 	
 	console.log("led on");
-        message = new Paho.MQTT.Message("LED ON");
-        message.destinationName = "ruberchiles@hotmail.es/test1";
-        client.send(message);
-        
+	
+	message = new Paho.MQTT.Message("L1on");
+    	message.destinationName = "ruberchiles@hotmail.es/test1";
+    	client.send(message);
   
 }
 function LED1_Off(){	
 	
 	console.log("led off");
-        message = new Paho.MQTT.Message("LED OFF")
-        message.destinationName = "ruberchiles@hotmail.es/test1";
-        client.send(message);
+	message = new Paho.MQTT.Message("L1off");
+    	message.destinationName = "ruberchiles@hotmail.es/test1";
+    	client.send(message);
+	//document.getElementById("sensor").innerHTML="led off";
 }
-
-
-
-
-
-
 // Create a client instance
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
   
@@ -47,7 +42,7 @@ function LED1_Off(){
     console.log("Conectado...");
 	
     client.subscribe("ruberchiles@hotmail.es/test");
-    message = new Paho.MQTT.Message("hola desde la web");
+    message = new Paho.MQTT.Message("Dispositivo Conectado con la Nube");
     message.destinationName = "ruberchiles@hotmail.es/test1";
     client.send(message);
 	
@@ -67,9 +62,9 @@ function LED1_Off(){
 
   // called when a message arrives
   function onMessageArrived(message) {
-    console.log("Nuevo mensaje:"+message.payloadString);
-    document.getElementById("sensor").innerHTML=message.payloadString.split("=")[1];
-    document.getElementById("sensor1").innerHTML=message.payloadString.split("=")[1];
-
+    console.log("onMessageArrived:"+message.payloadString);
+	x=message.payloadString;	
+		document.getElementById("sensor").innerHTML=x;
+		
   }
   
