@@ -1,21 +1,21 @@
 //https://www.eclipse.org/paho/clients/js/
 
-function LED1_On() {
-	
-	console.log("led on");
-	
-	message = new Paho.MQTT.Message("L1on");
+
+function Historial() {
+	console.log("Historial1");
+	message = new Paho.MQTT.Message("h");
     	message.destinationName = "ruberchiles@hotmail.es/test1";
     	client.send(message);
-  
 }
-function LED1_Off(){	
-	
-	console.log("led off");
-	message = new Paho.MQTT.Message("L1off");
+function Historial1() {
+	console.log("Historial2");
+	message = new Paho.MQTT.Message("h1");
     	message.destinationName = "ruberchiles@hotmail.es/test1";
     	client.send(message);
-	//document.getElementById("sensor").innerHTML="led off";
+		x=message.payloadString;	
+		//document.getElementById("sensor").innerHTML=x.split(" ")[0];
+		//document.getElementById("sensor1").innerHTML=x.split(" ")[1];
+		
 }
 // Create a client instance
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
@@ -64,7 +64,28 @@ function LED1_Off(){
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
 	x=message.payloadString;	
-		document.getElementById("sensor").innerHTML=x;
+		//document.getElementById("sensor").innerHTML=x.split(" ")[0];
+		//document.getElementById("sensor1").innerHTML=x.split(" ")[1];
+		if(x=="LED1_ENCENDIDO"){
+		document.getElementById("sensor").innerHTML=x
+		}
+		else if(x=="LED1_APAGADO"){
+		document.getElementById("sensor").innerHTML=x
+		}
+		else if(x=="LED2_ENCENDIDO"){
+		document.getElementById("sensor1").innerHTML=x
+		}
+		else if(x=="LED2_APAGADO"){
+		document.getElementById("sensor1").innerHTML=x
+		}
+		else {
+			
+			
+			document.getElementById("sensor2").innerHTML=x
+			document.getElementById("sensor3").innerHTML=x
+						
+		}
+			
 		
-  }
+		}
   
