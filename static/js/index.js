@@ -2,17 +2,16 @@
 
 
 function Historial() {
-	console.log("Historial1");
+	console.log("Historial_1");
 	message = new Paho.MQTT.Message("h");
     	message.destinationName = "ruberchiles@hotmail.es/test1";
     	client.send(message);
 }
 function Historial1() {
-	console.log("Historial2");
+	console.log("Historial_2");
 	message = new Paho.MQTT.Message("h1");
     	message.destinationName = "ruberchiles@hotmail.es/test1";
     	client.send(message);
-		x=message.payloadString;	
 		//document.getElementById("sensor").innerHTML=x.split(" ")[0];
 		//document.getElementById("sensor1").innerHTML=x.split(" ")[1];
 		
@@ -82,7 +81,6 @@ function Historial1() {
 			
 			
 			document.getElementById("sensor2").innerHTML=x
-			document.getElementById("sensor3").innerHTML=x
 						
 		}
 			
